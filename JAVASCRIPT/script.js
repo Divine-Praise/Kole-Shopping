@@ -40,7 +40,7 @@ titleTwo.addEventListener('click', ()=>
 });
 
 // Flash sales count down
-var countDownDate = new Date("Apr 20, 2024 00:00:00").getTime()
+var countDownDate = new Date("mar 20, 2024 00:00:00").getTime()
 var x = setInterval(function()
 {
 
@@ -68,7 +68,7 @@ var x = setInterval(function()
 },1000);
 
 // News Category count down
-var countDownDate2 = new Date("Apr 10, 2024 00:00:00").getTime()
+var countDownDate2 = new Date("mar 10, 2024 00:00:00").getTime()
 var catX = setInterval(function()
 {
 

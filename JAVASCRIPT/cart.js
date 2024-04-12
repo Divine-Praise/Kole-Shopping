@@ -62,6 +62,9 @@ function ready(){
       var button = addCart[i];
       button.addEventListener('click', addCartClicked);
   }
+  countCart();
+  countCartTwo();
+  countCartThree();
 }
 
 //Quantity Changes
@@ -102,21 +105,37 @@ function countCart(){
   var cart = document.getElementsByClassName('cart-product');
   var countItem = document.getElementById('count-items');
   countItem.innerHTML = cart.length;
-  //  console.log(countItem);
+
+  // Show or hide cart empty message
+  var emptyCart = document.querySelector('.empty-cart-msg');
+  var cartHeader = document.querySelector('.header-container');
+  var buttons = document.querySelector('.return-btn-container');
+  var totalCoupon = document.querySelector('.total-coupon-container');
+
+  if(cart.length === 0) {
+    emptyCart.style.display = 'block';
+    cartHeader.style.display = 'none';
+    buttons.style.display = 'none';
+    totalCoupon.style.display = 'none';
+  }
+  else {
+    emptyCart.style.display = 'none';
+    buttons.style.display = 'block';
+    cartHeader.style.display = 'block';
+    totalCoupon .style.display = 'block';
+  }
 }
 
 function countCartTwo(){
   var cart = document.getElementsByClassName('cart-product');
   var countItem = document.getElementById('count-items2');
   countItem.innerHTML = cart.length;
-  // console.log(cart);
 }
 
 function countCartThree(){
   var cart = document.getElementsByClassName('cart-product');
   var countItem = document.getElementById('count-items3');
   countItem.innerHTML = cart.length;
-  //  console.log(countItem);
 }
 
 function eMsg()
@@ -296,45 +315,8 @@ function updateSubTotal() {
   updatetotal();
 }
 
+function updateCart(){
+  updateSubTotal();
+  updatetotal();
+}
 
-// function inc(){
-//     var incrementBtn = cartShopBox.getElementsByClassName('inc');
-  
-//     // increment
-//     for(var i = 0; i < incrementBtn.length; i++){
-//       var button = incrementBtn[i];
-//       button.addEventListener('click', function(event){
-//           var buttonClicked = event.target;
-//           var input = buttonClicked.parentElement.children[0];
-//           var inputValue = input.value;
-//           var newValue = parseInt(inputValue) + 1;
-//           input.value = newValue;
-//           var check = buttonClicked.addEventListener('change', inc);
-//           // alert(check, "changed");
-//       });
-//     }
-//     updateSubTotal();
-//     updatetotal();
-//   }
-
-//   function dec(){
-//     var decrementBtn = cartShopBox.getElementsByClassName('dec');
-  
-//      // decrement
-//       for(var i = 0; i < decrementBtn.length; i++){
-//         var button = decrementBtn[i];
-//         button.addEventListener('click', function(event){
-//             var buttonClicked = event.target;
-//             var input = buttonClicked.parentElement.children[0];
-//             var inputValue = input.value;
-//             var newValue = parseInt(inputValue) - 1;
-//             if(newValue >= 1){
-//               input.value = newValue;
-//             }else{
-//               input.value = 1;
-//             }
-//         });
-//       }
-//       updateSubTotal();
-//       updatetotal();
-//   }

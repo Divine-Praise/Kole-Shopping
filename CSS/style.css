@@ -40,14 +40,6 @@
     --max-width: 1285px;
 }
 
-.wishlist-empty-msg {
-    display: none;
-    text-align: center;
-    max-width: var(--max-width);
-    margin: auto;
-    font-size: 3rem;
-}
-
 
 /* body{
     height: 100%;
@@ -1645,6 +1637,49 @@ footer .contents .app-img .right{
 
 
 /* ================================================ CART ========================================== */
+
+/*============================== empty cart ============================= */
+.empty-cart-msg{
+    /* border: 1px solid; */
+    max-width: var(--max-width);
+    margin: auto;
+    text-align: center;
+    margin-block: 1rem 3rem;
+}
+
+.empty-cart-msg img{
+    width: 250px;
+}
+
+.empty-cart-msg h3{
+    margin-block: 0 1.5rem;
+    color: var(--text-2);
+    font-size: 1.5rem;
+}
+
+.empty-cart-msg p{
+    font-size: 0.85rem;
+    color: var(--text-1);
+}
+
+.empty-cart-msg button{
+    padding: 0.7rem 3.2rem 0.7rem 3.2rem;
+    border: none;
+    outline: none;
+    margin-top: 1.1rem;
+    background: var(--text-2);
+    border-radius: 3px;
+    cursor: pointer;
+    color: var(--bg);
+    transition: .3s;
+}
+
+.empty-cart-msg button:hover{
+    transition: .3s;
+    background: var(--secondary-2);
+}
+
+/* ========================== occupied cart ================== */
 .cart{
     position: fixed;
     top: -100%;
@@ -1683,6 +1718,9 @@ footer .contents .app-img .right{
 }
 .page-title span{
     color: var(--text-2);
+}
+.header-container{
+    display: none;
 }
 .cart-header{
     /* border: 1px solid; */
@@ -1788,83 +1826,38 @@ footer .contents .app-img .right{
     /* border: 1px solid; */
 }
 .cart-product .container .how-many{
-    border: 1px solid var(--text-1);
+    /* border: 1px solid var(--text-1); */
+    /* box-shadow: 4px 4px 10px 0px var(--text-1); */
     width: 78px;
-    padding-block: 0.2rem;
+    /* padding-block: 0.2rem; */
     border-radius: 5px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 0.2rem;
+    position: relative;
 }
 .cart-product .container .how-many input[type="number"]{
-    width: 65px;
+    box-shadow: 4px 4px 10px 0px rgb(221, 216, 216) inset;
+    width: 78px;
     border: none;
     border-radius: 5px;
-    padding-block: 0.3rem;
+    padding-block: 0.5rem;
     padding-inline: 1rem 0;
     /* text-align: center; */
     color: var(--secondary-2);
     font-size: 1.1rem;
     font-weight: 400;
     outline: none;
-    /* -moz-appearance:  textfield; */
-}
-/* .cart-product .container .how-many input[type="number"]::-webkit-outer-spin-button,
-.cart-product .container .how-many input[type="number"]::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-} */
-
-.cart-product .container .how-many .button{
-    /* border: 1px solid; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.1rem;
-}
-.cart-product .container .how-many .button .top{
-    /* transform: rotate(-90deg); */
-    width: 22px;
-    height: 22px;
-    border-radius: 2px;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--secondary-2);
-    color: var(--bg);
-    cursor: pointer;
-    transition: .2s;
-    /* border: 1px solid; */
-}
-.cart-product .container .how-many .button .top:hover{
-    background: var(--text-2);
-    transition: .2s;
-}
-.cart-product .container .how-many .button .bottom{
-    /* transform: rotate(90deg); */
-    width: 22px;
-    height: 22px;
-    border-radius: 2px;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--secondary-2);
-    color: var(--bg);
-    cursor: pointer;
-    transition: .2s;
-}
-.cart-product .container .how-many .button .bottom:hover{
-    background: var(--text-2);
-    transition: .2s;
 }
 .cart-product .sub-total{
     /* border: 1px solid; */
     width: 10%;
     font-size: 1.1rem;
     font-weight: 400;
+}
+.return-btn-container{
+    display: none;
 }
 
 .return-to-shop{
@@ -1896,6 +1889,10 @@ footer .contents .app-img .right{
     background: var(--secondary-2);
     border: none;
     transition: .1s;
+}
+
+.total-coupon-container{
+    display: none;
 }
 
 .total-coupon{
@@ -2000,6 +1997,45 @@ footer .contents .app-img .right{
 }
 
 /* ========================================== WISH LIST ======================================= */
+
+/*============================ empty wish box ========================= */
+.wishlist-empty-msg{
+    /* border: 1px solid var(--text-1); */
+    max-width: var(--max-width);
+    margin: auto;
+    text-align: center;
+}
+
+.wishlist-empty-msg img{
+    width: 350px;
+}
+
+.wishlist-empty-msg p{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-1);
+}
+.wishlist-empty-msg span{
+    color: var(--secondary-2);
+}
+
+.wishlist-empty-msg button{
+    padding: 0.7rem 3.2rem 0.7rem 3.2rem;
+    border: none;
+    outline: none;
+    margin-top: 0.8rem;
+    background: var(--text-2);
+    border-radius: 3px;
+    cursor: pointer;
+    color: var(--bg);
+    transition: .3s;
+}
+.wishlist-empty-msg button:hover{
+    transition: .3s;
+    background: var(--secondary-2);
+}
+
+/* ==========================wish list occupied===================== */
 .wish-list{
     position: fixed;
     top: -100%;
@@ -2040,8 +2076,8 @@ footer .contents .app-img .right{
 }
 
 .wish-page-title button{
-    border: 1px solid var(--text-1);
-    background: var(--bg);
+    /* border: 1px solid var(--text-1); */
+    background: var(--text-2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2054,6 +2090,7 @@ footer .contents .app-img .right{
     font-weight: 500;
     cursor: pointer;
     transition: .2s;
+    display: none;
 }
 .wish-page-title button:hover{
     color: var(--bg);
@@ -2222,4 +2259,35 @@ footer .contents .app-img .right{
 .wish-box-container .wish-product .bottom .prices span{
     color: var(--text-1);
     font-size: 1.1rem;
+}
+
+.wish-list .wish-return{
+    max-width: var(--max-width);
+    margin: auto;
+    margin-bottom: 1.5rem;
+    display: none;
+}
+
+.wish-list .wish-return .return{
+    border: 1px solid var(--text-1);
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding-inline: 3.5rem;
+    padding-block: 1.2rem;
+    outline: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.wish-list .wish-return .return:hover{
+    color: var(--bg);
+    background: var(--secondary-2);
+    border: none;
+    transition: .1s;
 }

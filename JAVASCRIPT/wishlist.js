@@ -3,6 +3,11 @@ var wishPage = document.querySelector('.wish-list');
 var wishIcon = document.querySelector('#wish-icon');
 var cart1 = document.querySelector('.cart');
 
+function removeWish()
+{
+    wishPage.classList.toggle('active');
+};
+
 wishIcon.addEventListener('click', ()=>
 {
     // console.log("i am working");
@@ -32,12 +37,6 @@ if (document.readyState == 'loading'){
   }
 
 function ready(){
-    //Remove item from cart
-    var removeCartButtons = document.getElementsByClassName('del');
-    for (var i = 0; i < removeCartButtons.length; i++){
-        var button = removeCartButtons[i];
-        button.addEventListener('click', removeCartItem);
-    }
 
     //Add Wish 
     var addWishList = document.getElementsByClassName('wish-heart');
@@ -46,12 +45,7 @@ function ready(){
         button.addEventListener('click', addWishClicked);
     }
 
-    //Add cart
-    var addCart = document.getElementsByClassName('add-cart-wish');
-    for(var i = 0; i < addCart.length; i++){
-        var button = addCart[i];
-        button.addEventListener('click', addCartClicked);
-    }
+    countWish();
 }
 
 function addWishClicked(event){
@@ -76,10 +70,17 @@ function countWish(){
 
     // Show or hide wishlist empty message
     var wishlistEmptyMsg = document.querySelector('.wishlist-empty-msg');
+    var wishReturn = document.querySelector('.wish-return');
+    var move = document.querySelector('.move');
+
     if (wishList.length === 0) {
         wishlistEmptyMsg.style.display = 'block';
+        wishReturn.style.display = 'none';
+        move.style.display = 'none';
     } else {
         wishlistEmptyMsg.style.display = 'none';
+        wishReturn.style.display = 'block';
+        move.style.display = 'block';
     }
     //  console.log(countItem);
   }
@@ -88,51 +89,22 @@ function countWish(){
     var wishList = document.getElementsByClassName('wish-product');
     var countItem = document.getElementById('wish-list-count2');
     countItem.innerHTML = wishList.length;
-
-    // Show or hide wishlist empty message
-    var wishlistEmptyMsg = document.querySelector('.wishlist-empty-msg');
-    if (wishList.length === 0) {
-        wishlistEmptyMsg.style.display = 'block';
-    } else {
-        wishlistEmptyMsg.style.display = 'none';
-    }
-    // console.log(cart);
   }
   
   function countWishThree(){
     var wishList = document.getElementsByClassName('wish-product');
     var countItem = document.getElementById('wish-list-count3');
     countItem.innerHTML = wishList.length;
-
-    // Show or hide wishlist empty message
-    var wishlistEmptyMsg = document.querySelector('.wishlist-empty-msg');
-    if (wishList.length === 0) {
-        wishlistEmptyMsg.style.display = 'block';
-    } else {
-        wishlistEmptyMsg.style.display = 'none';
-    }
-    //  console.log(countItem);
   }
 
 function countWishFour(){
     var wishList = document.getElementsByClassName('wish-product');
     var countItem = document.getElementById('count-wish');
     countItem.innerHTML = wishList.length;
-
-    // Show or hide wishlist empty message
-    var wishlistEmptyMsg = document.querySelector('.wishlist-empty-msg');
-    if (wishList.length === 0) {
-        wishlistEmptyMsg.style.display = 'block';
-    } else {
-        wishlistEmptyMsg.style.display = 'none';
-    }
-    //  console.log(countItem);
 }
-countWish();
-countWishTwo();
-countWishThree();
-countWishFour();
 
+// var addCartButtons;
+// var deleteWishList;
 
 function addItemToWish(productTitle, productPrice, productOldPrice, productImg, productDiscount){
     var wishShopBox = document.createElement('div');
@@ -154,7 +126,7 @@ function addItemToWish(productTitle, productPrice, productOldPrice, productImg, 
                         <div class="top">
                             <div class="top-info">
                                 <div class="percent-off">
-                                    <p>${productDiscount}</p>
+                                    <p class="disp">${productDiscount}</p>
                                 </div>
                                 <div class="product-option">
                                     <i class="fa-regular fa-eye"></i>
@@ -164,7 +136,7 @@ function addItemToWish(productTitle, productPrice, productOldPrice, productImg, 
                                 <img src="${productImg}" alt="product image" class="product-image">
                             </div>
                         </div>
-                            <i class='bx bxs-trash del trash' ></i>
+                            <i class='bx bxs-trash del2 trash' ></i>
                             <button type="button" class="add-cart-wish">Add To Cart</button>
                             <div class="bottom">
                             <h3 class="product-name wish-product-name">${productTitle}</h3>
@@ -186,7 +158,42 @@ function addItemToWish(productTitle, productPrice, productOldPrice, productImg, 
       countWishFour();
     }
     WLSMsg();
-  
+
+
+    function checkIfDiscount(){
+        var checkDiscount = document.getElementsByClassName('disp');
+        var percentOff = document.getElementsByClassName('percent-off');
+        var checkValue = checkDiscount.length.valueOf(checkDiscount === "");
+        // console.log(percentOff);
+        if(checkValue){
+            console.log(checkValue);
+            percentOff.style.display = "none";
+            alert('working');
+            console.log(percentOff);
+        }
+    }
+    checkIfDiscount();
+    
+
+
+
+    // Add item to cart from wish list
+    addCartButtons = document.getElementsByClassName('add-cart-wish');
+    function addCart() {
+        for (var i = 0; i < addCartButtons.length; i++) {
+            var button = addCartButtons[i];
+            button.addEventListener('click', addCartClicked);
+        }
+    }
+    addCart();
+
+    //Remove item from wishlist
+    var removeCartButtons = document.getElementsByClassName('del2');
+    for (var i = 0; i < removeCartButtons.length; i++){
+        var button = removeCartButtons[i];
+        button.addEventListener('click', removeCartItem);
+    }
+
     // localStorage.setItem('cartShopBox', JSON.stringify(cartShopBox));
 }
 
@@ -251,11 +258,21 @@ function WLSMsg()
   }, 5000);
 }
 
+
 //Remove item from cart
 function removeCartItem(event){
     var buttonClicked = event.target;
     buttonClicked.parentElement.remove();
     // console.log(buttonClicked);
+    updateSubTotal();
+    updatetotal();
+    countCart();
+    countCartTwo();
+    countCartThree();
+    countWish();
+    countWishTwo();
+    countWishThree();
+    countWishFour();
 }
 
 function addCartClicked(event){
@@ -265,8 +282,8 @@ function addCartClicked(event){
     var productPrice = shopProducts.getElementsByClassName('product-price')[0].innerText;
     var productImg = shopProducts.getElementsByClassName('product-image')[0].src;
     addProductToCart(productTitle, productPrice, productImg);
-    // updatetotal();
-    // updateSubTotal();
+    updatetotal();
+    updateSubTotal();
 }
 
 function addProductToCart(productTitle, productPrice, productImg){
@@ -327,8 +344,26 @@ function countCart(){
     var cart = document.getElementsByClassName('cart-product');
     var countItem = document.getElementById('count-items');
     countItem.innerHTML = cart.length;
-    //  console.log(countItem);
-  }
+  
+    // Show or hide cart empty message
+    var emptyCart = document.querySelector('.empty-cart-msg');
+    var cartHeader = document.querySelector('.header-container');
+    var buttons = document.querySelector('.return-btn-container');
+    var totalCoupon = document.querySelector('.total-coupon-container');
+  
+    if(cart.length === 0) {
+      emptyCart.style.display = 'block';
+      cartHeader.style.display = 'none';
+      buttons.style.display = 'none';
+      totalCoupon.style.display = 'none';
+    }
+    else {
+      emptyCart.style.display = 'none';
+      buttons.style.display = 'block';
+      cartHeader.style.display = 'block';
+      totalCoupon .style.display = 'block';
+    }
+}
   
   function countCartTwo(){
     var cart = document.getElementsByClassName('cart-product');
@@ -405,3 +440,8 @@ function countCart(){
     }, 5000);
   }
   
+
+function moveItemToCart(){
+    // addCartClicked();
+    alert('Work in Progress');
+}

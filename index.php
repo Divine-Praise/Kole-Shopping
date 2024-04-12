@@ -438,7 +438,7 @@ include('includes/sidebar.php');
             <div class="top">
                 <div class="top-info">
                     <div class="disabled">
-                        <!-- <p>-40%</p> -->
+                        <p class="poff"></p>
                     </div>
                     <div class="product-option">
                         <i class="fa-regular fa-eye"></i>
@@ -472,7 +472,7 @@ include('includes/sidebar.php');
             <div class="top">
                 <div class="top-info">
                     <div class="disabled">
-                        <!-- <p>-40%</p> -->
+                        <p class="poff"></p>
                     </div>
                     <div class="product-option">
                         <i class="fa-regular fa-eye"></i>
@@ -506,7 +506,7 @@ include('includes/sidebar.php');
             <div class="top">
                 <div class="top-info">
                     <div class="disabled">
-                        <!-- <p>-40%</p> -->
+                        <p class="poff"></p>
                     </div>
                     <div class="product-option">
                         <i class="fa-regular fa-eye"></i>
@@ -540,7 +540,7 @@ include('includes/sidebar.php');
             <div class="top">
                 <div class="top-info">
                     <div class="disabled">
-                        <!-- <p>-40%</p> -->
+                        <p class="poff"></p>
                     </div>
                     <div class="product-option">
                         <i class="fa-regular fa-eye"></i>
@@ -672,7 +672,7 @@ include('includes/sidebar.php');
                 <div class="top">
                     <div class="top-info">
                         <div class="disabled">
-                            <!-- <p>-40%</p> -->
+                            <p class="poff"></p>
                         </div>
                         <div class="product-option">
                             <i class="fa-regular fa-eye"></i>
@@ -706,7 +706,7 @@ include('includes/sidebar.php');
                 <div class="top">
                     <div class="top-info">
                         <div class="disabled">
-                            <!-- <p>-40%</p> -->
+                            <p class="poff"></p>
                         </div>
                         <div class="product-option">
                             <i class="fa-regular fa-eye"></i>
@@ -813,7 +813,7 @@ include('includes/sidebar.php');
                 <div class="top">
                     <div class="top-info">
                         <div class="disabled">
-                            <!-- <p>-40%</p> -->
+                            <p class="poff"></p>
                         </div>
                         <div class="product-option">
                             <i class="fa-regular fa-eye"></i>
@@ -881,7 +881,7 @@ include('includes/sidebar.php');
                 <div class="top">
                     <div class="top-info">
                         <div class="disabled">
-                            <!-- <p>-40%</p> -->
+                            <p class="poff"></p>
                         </div>
                         <div class="product-option">
                             <i class="fa-regular fa-eye"></i>

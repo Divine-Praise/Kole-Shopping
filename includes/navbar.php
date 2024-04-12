@@ -85,77 +85,88 @@ include('header.php');
         include('news.php');
     ?>
 
-<!-- nav -->
-<div class="nav">
-    <nav>
-        <div class="logo">
-            <h3><span>K</span>ole</h3>
-        </div>
-        <div class="links">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="./about.php">About</a></li>
-                <li><a href="product.php">Product</a></li>
-            </ul>
-        </div>
-        <div class="search">
-            <form action="">
-                <input type="text" name="search" id="search" placeholder="What are you looking for?">
-                <button type="submit" id=""><i class='bx bx-search icon'></i></button>
-            </form>
-        </div>
-        <div class="nav-icons">
-            <div class="bx_cart">
-                <i class='bx bx-heart icon' id="wish-icon2"></i>
-                <span id="wish-list-count2">0</span>
+    <!-- nav -->
+    <div class="nav">
+        <nav>
+            <div class="logo">
+                <h3><span>K</span>ole</h3>
             </div>
-            <div class="bx_cart">
-                <i class='bx bx-cart-alt icon' id="cart-icon2"></i>
-                <span id="count-items2">0</span>
+            <div class="links">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="./about.php">About</a></li>
+                    <li><a href="product.php">Product</a></li>
+                </ul>
             </div>
-            <div class="user-info">
-                <i class='bx bx-user icon-user' >
-                <div class="acct-info">
-                    <a href="#"><div class="user-all-info">
-                        <i class='bx bx-user' ></i> 
-                        <p>Manage My Account</p>
-                    </div></a>
-                    <a href="#"><div class="user-all-info">
-                        <i class='bx bx-shopping-bag' ></i> 
-                        <p>My Order</p>
-                    </div></a>
-                    <a href="#"><div class="user-all-info">
-                        <i class='bx bx-x-circle' ></i> 
-                        <p>My Cancellations</p>
-                    </div></a>
-                    <a href="#"><div class="user-all-info">
-                        <i class='bx bx-star' ></i>
-                        <p>My Reviews</p>
-                    </div></a>
-                    <a href="#"><div class="user-all-info">
-                        <i class='bx bx-log-out' ></i>
-                        <p>Logout</p>
-                    </div></a>
+            <div class="search">
+                <form action="">
+                    <input type="text" name="search" id="search" placeholder="What are you looking for?">
+                    <button type="submit" id=""><i class='bx bx-search icon'></i></button>
+                </form>
+            </div>
+            <div class="nav-icons">
+                <div class="bx_cart">
+                    <i class='bx bx-heart icon' id="wish-icon2"></i>
+                    <span id="wish-list-count2">0</span>
                 </div>
-                </i>
+                <div class="bx_cart">
+                    <i class='bx bx-cart-alt icon' id="cart-icon2"></i>
+                    <span id="count-items2">0</span>
+                </div>
+                <div class="user-info">
+                    <i class='bx bx-user icon-user' >
+                    <div class="acct-info">
+                        <a href="#"><div class="user-all-info">
+                            <i class='bx bx-user' ></i> 
+                            <p>Manage My Account</p>
+                        </div></a>
+                        <a href="#"><div class="user-all-info">
+                            <i class='bx bx-shopping-bag' ></i> 
+                            <p>My Order</p>
+                        </div></a>
+                        <a href="#"><div class="user-all-info">
+                            <i class='bx bx-x-circle' ></i> 
+                            <p>My Cancellations</p>
+                        </div></a>
+                        <a href="#"><div class="user-all-info">
+                            <i class='bx bx-star' ></i>
+                            <p>My Reviews</p>
+                        </div></a>
+                        <a href="#"><div class="user-all-info">
+                            <i class='bx bx-log-out' ></i>
+                            <p>Logout</p>
+                        </div></a>
+                    </div>
+                    </i>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
 
     <!-- page title -->
     <div class="page-title">
         <p>Home / <span>Cart</span></p>
     </div>
     <div class="cart-container">
-        <p id="m"></p>
+
+
+        <!-- empty cart message -->
+        <div class="empty-cart-msg">
+            <img src="./images/empty cart.png" alt="">
+            <h3>Your Cart Is Currently Empty!</h3>
+            <p>Looks like you have not added anything to your cart. <br> Go ahead & explore. <br> You will find alot of interesting products in <b style="color: #db4444;">Kole</b> Store!</p>
+            <button type="button" onclick="removeCart()">Start Shopping!</button>
+        </div>
+
         <!-- product header -->
-        <div class="cart-header">
-            <p id="header-product">Product</p>
-            <p id="header-price">Price</p>
-            <p>Quantity</p>
-            <p id="sub-total">Subtotal</p>
+        <div class="header-container">
+            <div class="cart-header">
+                <p id="header-product">Product</p>
+                <p id="header-price">Price</p>
+                <p>Quantity</p>
+                <p id="sub-total">Subtotal</p>
+            </div>
         </div>
 
 
@@ -166,37 +177,41 @@ include('header.php');
     </div>
 
     <!-- return button  -->
-    <div class="return-to-shop">
-        <button type="button" onclick="removeCart()">Return To Shop</button>
-        <button type="button">Update Cart</button>
+    <div class="return-btn-container">
+        <div class="return-to-shop">
+            <button type="button" onclick="removeCart()">Return To Shop</button>
+            <button type="button" onclick="updateCart()">Update Cart</button>
+        </div>
     </div>
 
     <!-- cart product summary -->
-    <div class="total-coupon">
-        <div class="left">
-            <input type="text" name="coupon" id="coupon" placeholder="Coupon Code">
-            <button type="button">Apply Coupon</button>
-        </div>
-        <div class="right">
-            <div class="cart-summary">
-                <h2>Cart Total</h2>
-                <div class="content-summary">
-                    <h3 class="summary-sub-total">Subtotal:</h3>
-                    <p class="total-sum1-price">$0</p>
-                </div>
-                <div class="content-summary">
-                    <h3 class="summary-shipping-fee">Shipping:</h3>
-                    <p class="shipFee">$0</p>
-                </div>
-                <div class="content-summary ttt">
-                    <h3 class="overall-total">Total:</h3>
-                    <p class="main-total">$0</p>
-                </div>
-                <div class="proceed-button">
-                    <a href="#" class="btn-buy">Proceed to checkout</a>
+    <div class="total-coupon-container">
+        <div class="total-coupon">
+            <div class="left">
+                <input type="text" name="coupon" id="coupon" placeholder="Coupon Code">
+                <button type="button">Apply Coupon</button>
+            </div>
+            <div class="right">
+                <div class="cart-summary">
+                    <h2>Cart Total</h2>
+                    <div class="content-summary">
+                        <h3 class="summary-sub-total">Subtotal:</h3>
+                        <p class="total-sum1-price">$0</p>
+                    </div>
+                    <div class="content-summary">
+                        <h3 class="summary-shipping-fee">Shipping:</h3>
+                        <p class="shipFee">$0</p>
+                    </div>
+                    <div class="content-summary ttt">
+                        <h3 class="overall-total">Total:</h3>
+                        <p class="main-total">$0</p>
+                    </div>
+                    <div class="proceed-button">
+                        <a href="#" class="btn-buy">Proceed to checkout</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
     
 
@@ -328,15 +343,21 @@ include('header.php');
     <!-- page title -->
     <div class="wish-page-title">
         <p>Wish List(<span id="count-wish">0</span>)</p>
-        <button type="button">Move All To Bag</button>
+        <button type="button" class="move" onclick="moveItemToCart()">Move All To Bag</button>
     </div>
 
-    <p class="mm"></p>
+    <div class="wishlist-empty-msg" style="display: none;">
+        <img src="./images/empty wish.png" alt="">
+        <p>seems like you don't have wishes here. <br><span>Make a Wish!</span></p>
+        <button type="button" onclick="removeWish()">Start Shopping</button>
+    </div>
     <div class="wish-box-container">
-        <div class="wishlist-empty-msg" style="display: none;">Your wishlist is empty.</div>
+       
     </div>
-    
 
+    <div class="wish-return">
+        <button type="button" onclick="removeWish()" class="return">Return To Shop</button>
+    </div>
 
     <!-- footer -->
     <footer>
