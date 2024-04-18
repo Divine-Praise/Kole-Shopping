@@ -16,6 +16,12 @@
     scroll-behavior: smooth;
 }
 
+.added-to-wishlist {
+    color: #fff;
+    background-color: #db4444;
+}
+
+
 /* Required color */
 :root {
     --primary: #fff;
@@ -856,7 +862,7 @@ nav .bx_cart span{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1285px;
+    max-width: var(--max-width);
     margin: auto;
     border-bottom: 1px solid var(--text-1);
 }
@@ -868,7 +874,8 @@ nav .bx_cart span{
     outline: none;
     background: var(--secondary-2);
     color: var(--bg);
-    width: 17%;
+    /* width: 17%; */
+    padding-inline: 3.5rem;
     font-size: 1rem;
     padding-block: 1.1rem;
     border-radius: 5px;

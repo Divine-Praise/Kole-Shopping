@@ -46,12 +46,39 @@ function ready(){
     }
 
     countWish();
+    
+}
+
+function wished(){
+    var addWishList = document.getElementsByClassName('wish-heart');
+    for(var i = 0; i < addWishList.length; i++){
+        var button = addWishList[i];
+        button.addEventListener('click', wishedColor);
+    }
+}
+
+function wishedColor(event){
+    var button = event.target;
+    button.style.color = "#fff";
+    button.style.backgroundColor = "#db4444";
+}
+
+function delwished(){
+    var delWishList = document.getElementsByClassName('wish-heart');
+    for(var i = 0; i < delWishList.length; i++){
+        var button = delWishList[i];
+        button.addEventListener('click', delwishedColor);
+    }
+}
+
+function delwishedColor(event){
+    var button = event.target;
+    button.style.color = "#000";
+    button.style.backgroundColor = "#fff";
 }
 
 function addWishClicked(event){
     var button = event.target;
-    button.style.color = "#fff";
-    button.style.backgroundColor = "#db4444";
     var shopProducts = button.parentElement;
     var productTitle = shopProducts.getElementsByClassName('product-name')[0].innerText;
     var productPrice = shopProducts.getElementsByClassName('product-price')[0].innerText;
@@ -61,6 +88,23 @@ function addWishClicked(event){
     addItemToWish(productTitle, productPrice, productOldPrice, productImg, productDiscount);
     updatetotal();
     updateSubTotal();
+    // wished();
+}
+
+//Remove item from cart
+function removeCartItem(event){
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.remove();
+    updateSubTotal();
+    updatetotal();
+    countCart();
+    countCartTwo();
+    countCartThree();
+    countWish();
+    countWishTwo();
+    countWishThree();
+    countWishFour();
+    // delwished();
 }
 
 function countWish(){
@@ -156,26 +200,10 @@ function addItemToWish(productTitle, productPrice, productOldPrice, productImg, 
       countWishTwo();
       countWishThree();
       countWishFour();
+      wished();
     }
     WLSMsg();
-
-
-    function checkIfDiscount(){
-        var checkDiscount = document.getElementsByClassName('disp');
-        var percentOff = document.getElementsByClassName('percent-off');
-        var checkValue = checkDiscount.length.valueOf(checkDiscount === "");
-        // console.log(percentOff);
-        if(checkValue){
-            console.log(checkValue);
-            percentOff.style.display = "none";
-            alert('working');
-            console.log(percentOff);
-        }
-    }
-    checkIfDiscount();
     
-
-
 
     // Add item to cart from wish list
     addCartButtons = document.getElementsByClassName('add-cart-wish');
@@ -224,7 +252,7 @@ function addItemToWish(productTitle, productPrice, productOldPrice, productImg, 
   //Pop up message
   pop.classList.remove('active');
 
-  }, 5000);
+  }, 5000);  
 }
 
 function WLSMsg()
@@ -256,23 +284,6 @@ function WLSMsg()
     pop.classList.remove('active');
 
   }, 5000);
-}
-
-
-//Remove item from cart
-function removeCartItem(event){
-    var buttonClicked = event.target;
-    buttonClicked.parentElement.remove();
-    // console.log(buttonClicked);
-    updateSubTotal();
-    updatetotal();
-    countCart();
-    countCartTwo();
-    countCartThree();
-    countWish();
-    countWishTwo();
-    countWishThree();
-    countWishFour();
 }
 
 function addCartClicked(event){
