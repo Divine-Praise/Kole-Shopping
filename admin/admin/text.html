@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Salary Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tcontainer {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .tcontainer h2 {
+            margin-bottom: 20px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        #startButton, #stopButton {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="tcontainer">
+        <h2>Real-Time Salary Calculator</h2>
+        <div class="results" id="results">
+            <p>Time Worked: <span id="timeWorked">00:00:00</span></p>
+            <p>Salary Earned: $<span id="salaryEarned">0.00</span></p>
+        </div>
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+    </div>
+    
+    <script>
+        let totalSeconds = 0;
+        const maxSecondsPerDay = 3 * 60 * 60; // 3 hours in seconds
+        const salaryPerSecond = 15 / 3600; // $15 per hour divided by 3600 seconds
+        let interval = null;
+
+        document.getElementById('startButton').addEventListener('click', function() {
+            if (!interval && totalSeconds < maxSecondsPerDay) {
+                interval = setInterval(updateSalary, 1000);
+            }
+        });
+
+        document.getElementById('stopButton').addEventListener('click', function() {
+            clearInterval(interval);
+            interval = null;
+        });
+
+        function updateSalary() {
+            if (totalSeconds >= maxSecondsPerDay) {
+                clearInterval(interval);
+                interval = null;
+                return;
+            }
+            totalSeconds++;
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            const salaryEarned = totalSeconds * salaryPerSecond;
+
+            document.getElementById('timeWorked').innerText = 
+                `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+            document.getElementById('salaryEarned').innerText = salaryEarned.toFixed(2);
+        }
+
+        function pad(num) {
+            return num.toString().padStart(2, '0');
+        }
+    </script>
+</body>
+</html>

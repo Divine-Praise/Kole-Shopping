@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+.card-container{
+    min-height: 100vh;
+    /* background: #eee; */
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-flow: column; */
+    padding-inline: 60px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.vcard-box-container{
+    /* margin-bottom: -150px; */
+    position: relative;
+    height: 250px;
+    width: 400px;
+    /* z-index: 200; */
+}
+
+.vcard-box-container .front{
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #0d6efd, #f8f9fa);
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    padding: 20px;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform .4s ease-out;
+}
+
+.vcard-box-container .front .image{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.vcard-box-container .front .image img{
+    height: 50px;
+}
+
+.vcard-box-container .front .card-number-box{
+    padding: 30px 0;
+    font-size: 22px;
+    color: #fff;
+}
+
+.vcard-box-container .front .flexbox{
+    display: flex;
+}
+
+.vcard-box-container .front .flexbox .box:nth-child(1){
+    margin-right: auto;
+}
+
+.vcard-box-container .front .flexbox .box{
+    font-size: 15px;
+    color: #fff;
+}
+
+.vcard-box-container .back{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #0d6efd, #f8f9fa);
+    border-radius: 5px;
+    padding: 20px 0;
+    text-align: right;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    transform: perspective(1000px) rotateY(180deg);
+    transition: transform .4s ease-out;
+}
+
+.vcard-box-container .back .stripe{
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.vcard-box-container .back .box{
+    padding: 0 20px;
+}
+
+.vcard-box-container .back .box span{
+    color: #fff;
+    font-size: 15px;
+}
+
+.vcard-box-container .back .box .cvv-box{
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.vcard-box-container .back .box img{
+    margin-top: 30px;
+    height: 30px;
+}
+
+
+/* Master card */
+.mcard-box-container{
+    position: relative;
+    height: 250px;
+    width: 400px;
+}
+
+.mcard-box-container .front{
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #dc3545, #ffc107);
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    padding: 20px;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform .4s ease-out;
+}
+
+.mcard-box-container .front .image{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.mcard-box-container .front .image img{
+    height: 50px;
+}
+
+.mcard-box-container .front .card-number-box{
+    padding: 30px 0;
+    font-size: 22px;
+    color: #fff;
+}
+
+.mcard-box-container .front .flexbox{
+    display: flex;
+}
+
+.mcard-box-container .front .flexbox .box:nth-child(1){
+    margin-right: auto;
+}
+
+.mcard-box-container .front .flexbox .box{
+    font-size: 15px;
+    color: #fff;
+}
+
+.mcard-box-container .back{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #dc3545, #ffc107);
+    border-radius: 5px;
+    padding: 20px 0;
+    text-align: right;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    transform: perspective(1000px) rotateY(180deg);
+    transition: transform .4s ease-out;
+}
+
+.mcard-box-container .back .stripe{
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.mcard-box-container .back .box{
+    padding: 0 20px;
+}
+
+.mcard-box-container .back .box span{
+    color: #fff;
+    font-size: 15px;
+}
+
+.mcard-box-container .back .box .cvv-box{
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.mcard-box-container .back .box img{
+    margin-top: 30px;
+    height: 30px;
+}
