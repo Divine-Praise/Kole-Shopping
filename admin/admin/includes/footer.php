@@ -4,7 +4,7 @@
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2021</span>
+                <span>Copyright &copy; Kole str 2024</span>
             </div>
         </div>
     </footer>
@@ -324,38 +324,79 @@
         <script src="assets2/vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="assets2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+        <script>
+
+            let totalSeconds = <?php echo $workedSeconds; ?>;
+            const maxSecondsPerDay = 3 * 60 * 60; // 3 hours in seconds
+            const salaryPerSecond = 15 / 3600; // $15 per hour divided by 3600 seconds
+            let interval = null;
+
+            function updateSalary() {
+                totalSeconds++;
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                const salaryEarned = totalSeconds * salaryPerSecond;
+
+                document.getElementById('timeWorked').innerText = 
+                    ${pad(hours)}:${pad(minutes)}:${pad(seconds)};
+                document.getElementById('salaryEarned').innerText = salaryEarned.toFixed(2);
+
+                if (totalSeconds >= maxSecondsPerDay) {
+                    clearInterval(interval);
+                }
+            }
+
+            function pad(num) {
+                return num.toString().padStart(2, '0');
+            }
+
+            function fetchElapsedTime() {
+                fetch('update_time.php')
+                    .then(response => response.text())
+                    .then(data => {
+                        totalSeconds = parseInt(data, 10);
+                        if (totalSeconds < maxSecondsPerDay && !interval) {
+                            interval = setInterval(updateSalary, 1000);
+                        } else {
+                            updateSalary();
+                        }
+                });
+            }
+        </script>
+
+        <script>
+            $(document).ready(function(){
+
+                $(document).on('click', '.logout', function () {
+                    var worked_time = $('#timeWorked').text();
+                    var amount_worked = $('#salaryEarned').text();
+
+                    if(worked_time != '' && amount_worked != '')
+                    {
+                        var data = {
+                            'saverequest': true,
+                            'worked_time': worked_time,
+                            'amount_worked': amount_worked,
+                        }
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/NIIT-E-COMMERCE-PROJECT/admin/logout.php",
+                            data: data,
+                        });
+                    }else{
+                        alert('No Salary record');
+                    }
+                });
+            });
+        </script>
+
         <!-- card script -->
         <script src="assets/js/card.js"></script>
         
         <!-- custom js script -->
         <script src="assets/js/custom.js"></script>
 
-
-        <script>
-                $(document).ready(function(){
-
-                    $(document).on('click', '.logout', function () {
-                        var worked_time = $('#timeWorked').text();
-                        var amount_worked = $('#salaryEarned').text();
-
-                        if(worked_time != '' && amount_worked != '')
-                        {
-                            var data = {
-                                'saverequest': true,
-                                'worked_time': worked_time,
-                                'amount_worked': amount_worked,
-                            }
-
-                            $.ajax({
-                                type: "POST",
-                                url: "/NIIT-E-COMMERCE-PROJECT/admin/logout.php",
-                                data: data,
-                            });
-                        }else{
-                            alert('No Salary record');
-                        }
-                    });
-                });
-        </script>
         </body>
 </html>

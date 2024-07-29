@@ -27,7 +27,7 @@ if(!isset($_SESSION['productItems'])){
         <div class="col-md-12">
             <div class="card mt-4">
                 <div class="card-header">
-                    <h5 class="m-0 font-weight-bold" style="color: #495057">Order Summary
+                    <h5 class="m-0 font-weight-bold" style="color: #6f42c1">Order Summary
                         <a href="order-create.php" class="btn btn-danger float-end">Back to create order</a>
                     </h5>
                 </div>
@@ -46,7 +46,7 @@ if(!isset($_SESSION['productItems'])){
                                 if($customerQQuery){
                                     if(mysqli_num_rows($customerQQuery) > 0){
 
-                                        $cRowData =mysqli_fetch_assoc($customerQQuery);
+                                        $cRowData = mysqli_fetch_assoc($customerQQuery);
                                         ?>
                                             <table style="width: 100%; margin-bottom: 20px;">
                                                 <tbody>
@@ -111,7 +111,7 @@ if(!isset($_SESSION['productItems'])){
                                         <tr>
                                             <td style="border-bottom: 1px solid #ccc;"><?= $i++; ?></td>
                                             <td style="border-bottom: 1px solid #ccc;"><?= $row['name']; ?></td>
-                                            <td style="border-bottom: 1px solid #ccc;">N<?= number_format($row['price'], 0) ?></td>
+                                            <td style="border-bottom: 1px solid #ccc;"><?= number_format($row['price'], 0) ?></td>
                                             <td style="border-bottom: 1px solid #ccc;"><?= $row['quantity'] ?></td>
                                             <td style="border-bottom: 1px solid #ccc;" class="fw-bold">
                                                 N<?= number_format($row['price'] * $row['quantity'], 0) ?>
@@ -139,7 +139,7 @@ if(!isset($_SESSION['productItems'])){
 
                     <?php if(isset($_SESSION['productItems'])) : ?>
                         <div class="mt-4 text-end">
-                            <button type="button" class="btn btn-primary px-4 mx-1" id="saveOrder">Save</button>
+                            <a href="place-order.php" class="btn btn-primary px-4 mx-1">Check Out N<?= number_format($totalAmount, 0); ?></a>
                             <button class="btn btn-info px-4 mx-1" onclick="printMyBillingArea()">Print</button>
                             <button class="btn btn-warning px-4 mx-1" onclick="downloadPDF('<?= $_SESSION['invoice_no']; ?>')">
                                 Download PDF

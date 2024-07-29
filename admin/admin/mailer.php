@@ -9,10 +9,10 @@ $port = "587";
 $sslOrTls = "tls";
 
 $setUsername = "divineatansi123@gmail.com";
-$setPassword = "vdsm hmcp ytqa uzrx";
+$setPassword = "xgzq rpyq ydjp znlw";
 
-$emailAddress = "divineatansi123@gmail.com";
-$sendEmailAddress = "divineatansi123@gmail.com";
+$emailAddress = "kolestore123@gmail.com";
+$sendEmailAddress = "kolestore123@gmail.com";
 $subject = "You've got a new message";
 
 if(isset($_POST['sendMessageBtn'])){

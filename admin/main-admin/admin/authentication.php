@@ -18,6 +18,10 @@ if(isset($_SESSION['loggedIn']))
             logoutSession();
             redirect('../../login.php', 'Your account has been banned! Please contact admin.');
         }
+        if($row['admin_type'] == 'employee'){
+            logoutSession();
+            redirect('../../login.php', 'Access Denied!.');
+        }
     }
 }
 else

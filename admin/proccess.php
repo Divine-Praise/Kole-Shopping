@@ -47,7 +47,8 @@ if(isset($_POST['confirmOneTimePwd'])){
                         redirect('confirm-otp.php', 'Invalid Pin');
                     }else{
                         $_SESSION['loggedIn'] = true;
-                        $_SESSION['login_time'] = true;
+                        $_SESSION['login_time'] = time();
+                        $_SESSION['total_seconds'] = 0;
                         $firstname = $_SESSION['loggedInUser']['firstname'];
                         if($row['admin_type'] == 'admin'){
                             $adminName = $_SESSION['loggedInUser']['firstname'];

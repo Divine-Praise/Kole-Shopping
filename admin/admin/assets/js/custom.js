@@ -494,6 +494,3 @@ function OpenEn(){
     enClose.style.display = "none";
     enOpen.style.display = "block";
 }
-
-
-

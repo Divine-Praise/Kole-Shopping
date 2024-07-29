@@ -16,14 +16,14 @@ function sendemail_ticket($adminFirstName,$adminEmail,$message)
     $mail->SMTPAuth   = true;
 
     $mail->Host       = 'smtp.gmail.com';
-    $mail->Username   = 'divineatansi123@gmail.com';
-    $mail->Password   = 'vdsm hmcp ytqa uzrx';
+    $mail->Username   = 'kolestore123@gmail.com';
+    $mail->Password   = 'xgzq rpyq ydjp znlw';
 
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
 
     //Recipients
-    $mail->setFrom('divineatansi123@gmail.com', $adminFirstName);
+    $mail->setFrom('kolestore123@gmail.com', 'KOLE STR');
     $mail->addAddress($adminEmail);
 
     //Content

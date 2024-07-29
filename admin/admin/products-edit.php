@@ -75,7 +75,7 @@
                             <div class="col-md-4 mb-3">
                                 <label for="">Image *</label>
                                 <input type="file" name="image" class="form-control"/>
-                                <img src="../<?= $product['data']['image'] ?>" style="width: 80px; height: 80px;" alt="Image">
+                                <img src="../main-admin/<?= $product['data']['image'] ?>" style="width: 80px; height: 80px;" alt="Image">
                             </div>
                             
 

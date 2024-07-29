@@ -106,6 +106,12 @@
                                 </td>
                                 <td>
                                     <a href="view-approved-trx.php?id=<?= $item['id'] ?>" class="btn btn-info btn-sm">View</a>
+                                    <a href="delete_trx.php?id=<?= $item['id'] ?>"
+                                            class="btn btn-danger"
+                                            onclick="return confirm('Are you sure you want to delete this transaction Record?')"
+                                        >
+                                        <i class="fas fa-trash float-end"></i>
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

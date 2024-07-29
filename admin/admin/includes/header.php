@@ -1,6 +1,14 @@
 <?php 
 require '../config/function.php';
 require 'authentication.php';
+
+if (!isset($_SESSION['login_time'])) {
+    header("Location: index.php");
+    exit();
+}
+
+// Calculate the worked seconds from session
+$workedSeconds = isset($_SESSION['total_seconds']) ? $_SESSION['total_seconds'] : 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,12 +79,10 @@ require 'authentication.php';
 
     <?php include('navbar.php'); ?>
 
-    <div class="tcontainer">
+    <!-- <div class="tcontainer">
         <h2>Real-Time Salary Calculator</h2>
         <div class="results" id="results">
             <p>Time Worked: <span id="timeWorked">00:00:00</span></p>
             <p>Salary Earned: $<span id="salaryEarned">0.00</span></p>
         </div>
-        <button id="startButton">Start</button>
-        <button id="stopButton">Stop</button>
-    </div>
+    </div> -->

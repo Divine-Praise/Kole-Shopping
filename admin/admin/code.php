@@ -159,7 +159,7 @@
 
         if($_FILES['image']['size'] > 0)
         {
-            $path = "../assets/uploads/products";
+            $path = "../main-admin/assets/uploads/products";
             $image_ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
             $filename = time().'.'.$image_ext;
@@ -206,7 +206,7 @@
 
         if($_FILES['image']['size'] > 0)
         {
-            $path = "../assets/uploads/products";
+            $path = "../main-admin/assets/uploads/products";
             $image_ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
             $filename = time().'.'.$image_ext;

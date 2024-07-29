@@ -100,7 +100,9 @@
                                             <hr class="bg-gray-500">
                                             <label>Note that this amount will be deducted from your payment gateway account.(N)</label>
                                             <hr class="bg-gray-500">
-                                            <center><button type="submit" class="btn btn-primary" name="payAdminBtn">Pay <?= $salary['data']['admin_username']; ?> Now</button></center>
+                                            <center>
+                                                <button type="submit" class="btn btn-primary" name="payAdminBtn" onclick="return confirm('Are you sure you want to pay <?= $salary['data']['admin_username']; ?> the sum of N<?= $salary['data']['admin_amount']; ?>')">Pay <?= $salary['data']['admin_username']; ?> Now</button>
+                                            </center>
                                         </form>
                                     <?php
                                 }

@@ -16,14 +16,14 @@ function sendemail_ticket($adminFirstName,$adminEmail,$finalMessage)
     $mail->SMTPAuth   = true;
 
     $mail->Host       = 'smtp.gmail.com';
-    $mail->Username   = 'divineatansi123@gmail.com';
-    $mail->Password   = 'vdsm hmcp ytqa uzrx';
+    $mail->Username   = 'kolestore123@gmail.com';
+    $mail->Password   = 'xgzq rpyq ydjp znlw';
 
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
 
     //Recipients
-    $mail->setFrom('divineatansi123@gmail.com', $adminFirstName);
+    $mail->setFrom('kolestore123@gmail.com', 'KOLE STR');
     $mail->addAddress($adminEmail);
 
     //Content
@@ -114,7 +114,7 @@ if(isset($_GET['transfer_id'])){
                 ];
                 $salaryupdate = update('salary', $salaryId, $data2);
                 if($bonus != ''){
-                    $finalMessage = "$adminFirstName, N$salaryAmount has been deposited into your account with a bonus of $$bonus";
+                    $finalMessage = "$adminFirstName, N$salaryAmount has been deposited into your account with a bonus of N$bonus";
                 }else{
                     $finalMessage = "$adminFirstName, N$salaryAmount has been deposited into your account";
                 }

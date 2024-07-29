@@ -41,91 +41,6 @@
         <?= alertMessage(); ?>
         <div class="col-lg-8">
           <div class="row">
-            <div class="col-xl-6 mb-xl-0 mb-4">
-              <div class="card bg-transparent shadow-xl">
-                <div class="overflow-hidden position-relative border-radius-xl" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/card-visa.jpg');">
-                  <span class="mask bg-gradient-dark"></span>
-                  <div class="card-body position-relative z-index-1 p-3">
-                    <i class="fas fa-wifi text-white p-2"></i>
-                    <h5 class="text-white mt-4 mb-5 pb-2">4562&nbsp;&nbsp;&nbsp;1122&nbsp;&nbsp;&nbsp;4594&nbsp;&nbsp;&nbsp;7852</h5>
-                    <div class="d-flex">
-                      <div class="d-flex">
-                        <div class="me-4">
-                          <p class="text-white text-sm opacity-8 mb-0">Card Holder</p>
-                          <h6 class="text-white mb-0">Jack Peterson</h6>
-                        </div>
-                        <div>
-                          <p class="text-white text-sm opacity-8 mb-0">Expires</p>
-                          <h6 class="text-white mb-0">11/22</h6>
-                        </div>
-                      </div>
-                      <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
-                        <img class="w-60 mt-2" src="arg_assets/img/logos/mastercard.png" alt="logo">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="row">
-                <div class="col-md-6" data-toggle="modal" data-target="#requestSalaryModal" style="cursor: pointer;">
-                  <div class="card">
-                    <div class="card-header mx-4 p-3 text-center">
-                      <div class="icon icon-shape icon-lg shadow text-center border-radius-lg bg-gradient-dark">
-                        <i class="fas fa-landmark opacity-10"></i>
-                      </div>
-                    </div>
-                    <div class="card-body pt-0 p-3 text-center">
-                      <h6 class="text-center mb-0">Salary</h6>
-                      <span class="text-xs">Belong Interactive</span>
-                      <hr class="horizontal dark my-3">
-                      <?php
-                        $adminId = $_SESSION['loggedInUser']['user_id'];
-                        $query = "SELECT acct_bal FROM admins WHERE id = '$adminId'";
-                        $acct_bal = mysqli_query($conn, $query);
-
-                        if(mysqli_num_rows($acct_bal) > 0){
-                          foreach($acct_bal as $item){
-                            ?>
-                            <h5 class="mb-0">N<?= $item['acct_bal']  ?></h5>
-                            <?php
-                          }
-                        }
-                      ?>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mt-md-0 mt-4">
-                  <div class="card">
-                    <div class="card-header mx-4 p-3 text-center">
-                      <div class="icon icon-shape icon-lg shadow text-center border-radius-lg bg-gradient-dark">
-                        <i class="fas fa-landmark opacity-10"></i>
-                      </div>
-                    </div>
-                    <div class="card-body pt-0 p-3 text-center">
-                      <h6 class="text-center mb-0">Bonus</h6>
-                      <span class="text-xs">Freelance Bonus</span>
-                      <hr class="horizontal dark my-3">
-                      <?php
-                        $adminId = $_SESSION['loggedInUser']['user_id'];
-                        $query = "SELECT bonus FROM admins WHERE id='$adminId'";
-                        $acct_bal = mysqli_query($conn, $query);
-
-                        if(mysqli_num_rows($acct_bal) > 0){
-                          foreach($acct_bal as $item){
-                            ?>
-                            <h5 class="mb-0">N<?= $item['bonus'] ?></h5>
-                            <?php
-                          }
-                        }
-                      ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="col-md-12 mb-lg-0 mb-4">
               <div class="card mt-4">
                 <div class="card-header pb-0 p-3">
@@ -330,7 +245,7 @@
             <div class="card-header pb-0 px-3">
               <div class="row">
                 <div class="col-md-6">
-                  <h6 class="mb-0">Your Salary Transaction's</h6>
+                  <h6 class="mb-0">Your Transaction's</h6>
                 </div>
                 <?php 
                   if(isset($_GET['date'])){

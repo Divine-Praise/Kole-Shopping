@@ -106,6 +106,7 @@
                                 </td>
                                 <td>
                                     <a href="view-declined-trx.php?id=<?= $item['id'] ?>" class="btn btn-info btn-sm">View</a>
+                                    <a href="delete-declined-trx.php?id=<?= $item['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this Record')"><i class="fas fa-trash float-end"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

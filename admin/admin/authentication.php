@@ -23,6 +23,11 @@ if(isset($_SESSION['loggedIn']))
             logoutSession();
             redirect(header('Location: ../otp.php'));
         }
+
+        if($row['admin_type'] == 'admin'){
+            logoutSession();
+            redirect('../../login.php', 'Access Denied!.');
+        }
     }
 }
 else
@@ -31,48 +36,19 @@ else
 }
 
 if(!isset($_SESSION['login_time'])){
-    redirect('../login.php', 'Unable to Count Salary');
-    echo '
-    <script>
-        clearInterval(interval);
-        interval = null;
-    </script>
-    ';
+    redirect('../login.php', 'No time tracked if not logged in');
+    // echo '
+    // <script>
+    //     clearInterval(interval);
+    //     interval = null;
+    // </script>
+    // ';
 }else{
-    ?>
-        <script>
 
-            let totalSeconds = 0;
-            const maxSecondsPerDay = 3 * 60 * 60; // 3 hours in seconds
-            const salaryPerSecond = 15 / 3600; // $15 per hour divided by 3600 seconds
-            let interval = null;
+    $current_time = time();
+    $_SESSION['total_seconds'] = $current_time -  $_SESSION['login_time'];
 
-            if (!interval && totalSeconds < maxSecondsPerDay) {
-                interval = setInterval(updateSalary, 1000);
-            }
-
-            function updateSalary() {
-                if (totalSeconds >= maxSecondsPerDay) {
-                    clearInterval(interval);
-                    interval = null;
-                    return;
-                }
-                totalSeconds++;
-                const hours = Math.floor(totalSeconds / 3600);
-                const minutes = Math.floor((totalSeconds % 3600) / 60);
-                const seconds = totalSeconds % 60;
-                const salaryEarned = totalSeconds * salaryPerSecond;
-            
-                document.getElementById('timeWorked').innerText = 
-                    `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-                document.getElementById('salaryEarned').innerText = salaryEarned.toFixed(2);
-            }
-            
-            function pad(num) {
-                return num.toString().padStart(2, '0');
-            }
-        </script>
-    <?php
+    $workedSeconds = isset($_SESSION['total_seconds']) ? $_SESSION['total_seconds'] : 0;
 }
 
 

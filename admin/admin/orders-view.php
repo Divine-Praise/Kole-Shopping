@@ -79,7 +79,7 @@
                                         </label>
                                         <br />
                                         <label class="mb-1">
-                                            Phone Number: 
+                                            Phone Number:
                                             <span class="fw-bold"><?= $orderData['phone']; ?></span>
                                         </label>
                                         <br />
@@ -98,6 +98,7 @@
                             {
                                 if(mysqli_num_rows($orderItemRes) > 0)
                                 {
+                                    $row = mysqli_fetch_assoc($orderItemRes);
                                     ?>
                                     <h4 class="my-3">Order Items Details</h4>
                                     <div class="table-responsive">
@@ -138,6 +139,72 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+
+                                        <main class="main-content position-relative border-radius-lg ">
+                                            <div class="container-fluid py-4">
+                                                <div class="row">
+                                                    <div class="col-md-10 m-auto">
+                                                        <div class="card">
+                                                        <div class="card-header p-3 px-3 d-flex" style="justify-content: space-between;">
+                                                            <h6 class="mb-0">Customer Billing Information</h6>
+                                                        </div>
+                                                        <hr class="bg-gray-600 m-0">
+                                                        <div class="card-body pt-4 p-3">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="hidden" value="">
+                                                                        <h6 class="mb-0">Personal information</h6>
+                                                                        <hr class="bg-gray-500">
+                                                                        <div class="row">
+                                                                            <div class="col-md 6">
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Full Name: </label> <span class="fs-6 ml-4"><?= $row['f_name']; ?> <?= $row['m_name']; ?> <?= $row['l_name']; ?></span>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Email: </label> <span class="fs-6 ml-4"><?= $row['email'] ?></span>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Phone Number: </label> <span class="fs-6 ml-4 "><?= $row['phone'] ?></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Additional Phone No: </label> <span class="fs-6 ml-4"><?= $row['add_phone'] ?></span>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Address: </label> <span class="fs-6 ml-4"><?= $row['address'] ?></span>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Additional Address: </label> <span class="fs-6 ml-4"><?= $row['add_address']; ?></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Nearest Bus-stop: </label> <span class="fs-6 ml-4"><?= $row['near_bust'] ?></span>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                <label class="font-weight-bold">State: </label> <span class="fs-6 ml-4"><?= $row['state']; ?></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label class="font-weight-bold">Postal Code: </label> <span class="fs-6 ml-4 "><?= $row['p_code'] ?></span>
+                                                                                </div>
+                                                                        </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </main>
 
                                         <div class="mt-3">
                                             <div class="card caed-body">

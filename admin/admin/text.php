@@ -1,12 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['login_time'])) {
-    header("Location: index.php");
-    exit();
-}
+
 
 $loginTime = $_SESSION['login_time'];
-$currentTime = time();
+$currentTime = strtotime( time());
 $workedSeconds = $currentTime - $loginTime;
 ?>
 

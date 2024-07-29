@@ -330,7 +330,7 @@
             <div class="card-header pb-0 px-3">
               <div class="row">
                 <div class="col-md-6">
-                  <h6 class="mb-0">Your Salary Transaction's</h6>
+                  <h6 class="mb-0">Your Transaction's</h6>
                 </div>
                 <?php 
                   if(isset($_GET['date'])){
